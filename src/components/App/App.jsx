@@ -15,7 +15,7 @@ export const App = () => {
     <>
     
       <nav className={css.navbar}>
-        <Link to="/" className={css.navbar_link}>Home</Link>
+        <Link to="/" className={css.navbar__link}>Home</Link>
         <Link to="/movies" className={css.navbar_link}>Movies</Link>
       </nav>
       <Suspense fallback={<div>Loading......</div>}>
