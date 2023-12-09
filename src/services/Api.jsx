@@ -17,7 +17,7 @@ const get = async (url, params = {}) => {
 };
 
 
-export const getTRendingMovies = () => {
+export const getTrendingMovies = () => {
     const url = '${BASE_URL}/trending/movie/day';
     return get(url);
 };
