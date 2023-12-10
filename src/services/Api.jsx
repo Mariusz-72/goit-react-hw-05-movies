@@ -18,27 +18,27 @@ const get = async (url, params = {}) => {
 
 
 export const getTrendingMovies = () => {
-    const url = '${BASE_URL}/trending/movie/day';
+    const url = `${BASE_URL}/trending/movie/day`;
     return get(url);
 };
 
 export const searchMovies = query => {
-    const url = '${BASE_URL}/search/movie';
+    const url = `${BASE_URL}/search/movie`;
     const params = { query };
     return get(url, params);
 };
 
 export const getMovieDetails = movieId => {
-    const url = '${BASE_URL}/movies/${movieId}';
+    const url = `${BASE_URL}/movies/${movieId}`;
     return get(url);
 };
 
 export const getMovieCredits = movieId => {
-    const url = '${BASE_URL}/movie/${movieId}/credits';
+    const url = `${BASE_URL}/movie/${movieId}/credits`;
     return get(url);
 };
 
 export const getMovieReviews = movieId => {
-    const url = '${BASE_URL}/movie/${movieId}/reviews'
+    const url = `${BASE_URL}/movie/${movieId}/reviews`
     return get(url);
 };
