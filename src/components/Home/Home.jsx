@@ -37,12 +37,12 @@ const Home = () => {
                     onMouseLeave={handleMouseLeave}
                     className={css.movieItem}
                 >
-                    <Link to={'/movies/${movie.id}'} className={css.movieLink}>
+                    <Link to={`/movies/${movie.id}`} className={css.movieLink}>
                         <h3>{movie.title}</h3>
                     </Link>
                     {hoveredMovieId === movie.id && (
                         <img
-                            src={'https://image.tmdb.org/t/p/w200/${movie.poster_path}'}
+                            src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                             alt={movie.title}
                             className={css.moviePoster}
                         />
