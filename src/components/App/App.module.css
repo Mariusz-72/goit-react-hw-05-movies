@@ -4,12 +4,13 @@
     justify-content: flex-start;
     height: 60px;
     width: 100%;
-    background: linear-gradient(60deg, rgb(31, 247, 3), rgb(241, 166, 27));
+    background: linear-gradient(60deg, rgb(3, 137, 247), rgb(241, 166, 27));
 
 }
 
 .navbar__link {
     font-size: 24px;
     color:cornflowerblue;
-    margin-left: 100px;
+    margin: 0 100px;
+    
 }
