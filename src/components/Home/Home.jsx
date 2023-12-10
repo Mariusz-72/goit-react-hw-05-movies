@@ -35,7 +35,7 @@ const handleMouseLeave = () => {
 
 return (
     <div className={css.home}>
-        <h1>Popularne filmy</h1>
+        <h1>Recently popular movies :</h1>
         {movies.map(movie => (
             <div
             key={movie.id}
