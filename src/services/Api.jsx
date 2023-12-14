@@ -42,3 +42,4 @@ export const getMovieReviews = movieId => {
   const url = `${BASE_URL}/movie/${movieId}/reviews`;
   return get(url);
 };
+

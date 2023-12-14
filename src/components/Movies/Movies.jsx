@@ -10,15 +10,20 @@ const [searchResults, setSearchResults] = useState([]);
 const [noResults, setNoResults] = useState(false);
 
 const handleSearch = async e => {
-e.preventDefault();
+  e.preventDefault();
 
-try {
+  try {
     const response = await searchMovies(searchQuery);
-    setSearchResults(response.results);
-    setNoResults(response.results.length === 0);
-    } catch (error) {
-        console.log('Error searching movies:', error);
+
+    if (response && response.results) {
+      setSearchResults(response.results);
+      setNoResults(response.results.length === 0);
+    } else {
+      setNoResults(true);
     }
+  } catch (error) {
+    console.log('Error searching movies:', error);
+  }
 };
 
 return (
@@ -37,13 +42,17 @@ return (
         </button>
     </form>
     {noResults && <p className={css.noResults}>No results found</p>}
-    {searchResults.map(movie => (
-        <div key={movie.id} className={css.movieItem}>
-        <Link to={`/movies/${movie.id}`} className={css.movieLink}>
-            <h3>{movie.title}</h3>
-        </Link>
-        </div>
-        ))}
+    {searchResults && searchResults.length > 0 ? ( 
+        searchResults.map((movie) => (
+            <div key={movie.id} className={css.movieItem}>
+            <Link to={`/movies/${movie.id}`} className={css.movieLink}>
+                <h3>{movie.title}</h3>
+            </Link>
+            </div>
+        ))
+        ) : (
+        <p className={css.noResults}>No results found</p>
+    )}
     </div>
     );
 };

@@ -36,7 +36,7 @@ const handleMouseLeave = () => {
 return (
     <div className={css.home}>
         <h1>Recently popular movies :</h1>
-        {movies.map(movie => (
+        {movies && movies.map(movie => (
             <div
             key={movie.id}
             onMouseEnter={() => handleMouseEnter(movie.id)}
