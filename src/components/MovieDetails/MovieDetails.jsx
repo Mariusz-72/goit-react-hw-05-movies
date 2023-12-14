@@ -8,17 +8,16 @@ import {
 import css from './MovieDetails.module.css';
 
 
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
+
 
 
 const MovieDetails = () => {
 const { movieId } = useParams();
 const [movie, setMovie] = useState(null);
-const [cast, setCast] = useState([]);
-const [reviews, setReviews] = useState([]);
+const [setCast] = useState([]);
+const [setReviews] = useState([]);
 const navigate = useNavigate();
-const [activeTab, setActiveTab] = useState(null);
+const [activeTab] = useState(null);
 
 useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +32,7 @@ useEffect(() => {
     };
 
 fetchData();
-  }, [movieId]);
+  }, [setCast,movieId]);
 
 useEffect(() => {
 const fetchReviews = async () => {
@@ -48,7 +47,22 @@ const fetchReviews = async () => {
     if (activeTab === 'reviews') {
       fetchReviews();
     }
-  }, [movieId, activeTab]);
+}, [movieId, activeTab, setReviews]);
+  
+  useEffect(() => {
+    const fetchCast = async () => {
+      try {
+        const castData = await getMovieCredits(movieId);
+        setCast(castData.cast);
+      } catch (error) {
+        console.log('Error fetching movie cast:', error);
+      }
+    };
+
+    if (activeTab === 'cast') {
+      fetchCast();
+    }
+  }, [movieId, activeTab, setCast]);
 
 const getYear = releaseDate => {
     const date = new Date(releaseDate);
