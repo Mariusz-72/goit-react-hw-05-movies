@@ -15,7 +15,7 @@ const Cast = () => {
             return;
         }
 
-        const fetchMovieCredits = async () => {
+    const fetchMovieCredits = async () => {
             try {
             const response = await getMovieCredits(movieId);
             setCast(response.cast);
